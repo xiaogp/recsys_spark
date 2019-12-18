@@ -25,7 +25,8 @@ i2i算法，为了衡量物品 i 和 j 的相似性，考察都购买了物品 i
 <img src="https://img-blog.csdnimg.cn/20190805110844408.png" width = "250" height = "60" alt="swing公式" align=center>
 
 ### 计算相似商品
-结果存储到hbase，phoenix查询结果，ItemCF结果
+phoenix查询hbase结果，ItemCF结果
+
 item => [[item1, score],[item2, score]...]
 
 | spu  | recommend  |
@@ -41,6 +42,7 @@ item => [[item1, score],[item2, score]...]
 | 000dd_45311  | [[3721,0.02095],[21908,0.0156],[25633,0.01145],[5002,0.01438],[28633,0.02605],[17088,0.|
 
 ### 计算推荐结果
+
 user => [item1, item2, item3...]
 
 | userid  | recommend  |

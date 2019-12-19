@@ -15,12 +15,16 @@ Spark SQL实现ItemCF，UserCF，Swing，推荐算法CF协同过滤召回模块
 
 
 ### ItemCF（基于物品的协同过滤）
-i2i算法，以商品共现作为相似度，对热门用户的长序列进行惩罚，相似度计算公式：
+i2i2u算法，以用户曾经购买过的商品作为中间桥梁，连接用户和其他商品。
+以商品共现作为相似度，对热门用户的长序列进行惩罚，相似度计算公式：
 
 <img src="https://img-blog.csdn.net/20170313105954561?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfdHl0aW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width = "250" height = "80" alt="swing公式" align=center>
 
+### UserCF（基于用户的协同过滤）
+u2u2i算法，以用户作为中间桥梁，连接其他用户和商品 以用户共现作为相似度，对热门商品的长用户序列进行惩罚，相似度计算公式只需要把ItemCF公式中分子分母里面的i，j（商品1，商品2）换成u，v（用户1，用户2），用户序列 N(u)替换成 N(i)商品序列即可。
+
 ### Swing（基于图的协同过滤）
-i2i算法，为了衡量物品 i 和 j 的相似性，考察都购买了物品 i和 j 的用户 u 和 v， 如果这两个用户共同购买的物品越少，则物品 i 和 j 的相似性越高。相似度计算公式
+i2i2u算法，以用户已经购买的商品作为中间桥梁，连接用户和其他商品。 为了衡量物品 i 和 j 的相似性，考察都购买了物品 i和 j 的用户 u 和 v， 如果这两个用户共同购买的物品越少，则物品 i 和 j 的相似性越高。相似度计算公式
 
 <img src="https://img-blog.csdnimg.cn/20190805110844408.png" width = "250" height = "60" alt="swing公式" align=center>
 

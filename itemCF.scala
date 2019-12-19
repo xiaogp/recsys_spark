@@ -101,6 +101,8 @@ object itemCF {
 
     // 保存用户偏好推荐数据
     saveHbase(itemcf_recommend, "ITEMCF_RECOMMEND")
+    
+    spark.close()
 
   }
 }

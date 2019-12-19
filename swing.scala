@@ -138,6 +138,7 @@ object swing {
     saveHbase(swing_similar, "SWING_SIMILAR")
     saveHbase(swing_recommend, "SWING_RECOMMEND")
 
+    spark.close()
   }
 }
 

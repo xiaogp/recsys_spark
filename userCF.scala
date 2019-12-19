@@ -14,7 +14,7 @@ object userCF {
     val spark = SparkSession
       .builder
       .master("yarn")
-      .appName("itemCF")
+      .appName("userCF")
       .enableHiveSupport()
       .getOrCreate()
 
@@ -109,7 +109,8 @@ object userCF {
 
     // usercf推荐结果保存到hbase
     saveHbase(usercf_recommend, "USERCF_RECOMMEND")
-
+   
+   spark.close()
   }
 
 }

@@ -85,7 +85,7 @@ object itemCF {
     // 计算用户偏好
     val score = df_sales.withColumn("pref", lit(1) / (datediff(current_date(), $"date") * profile_decay + 1)).groupBy("userid", "itemid").agg(sum("pref").as("pref"))
 
-    // 内连接，会连接所有可能
+    // 连接用户偏好，商品相似度
     val df_user_prefer1 = df_sales8.join(score, $"itemidI" === $"itemid", "inner")
 
     // 偏好 × 相似度 × 商品热度降权
